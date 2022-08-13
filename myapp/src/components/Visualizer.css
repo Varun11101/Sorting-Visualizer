@@ -1,0 +1,11 @@
+.arrayContainer {
+    margin: 20px auto;
+}
+
+.arrayElement {
+    background-color: yellow;
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;
+    width: 5px;
+}
