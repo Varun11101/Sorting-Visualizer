@@ -1,0 +1,27 @@
+const bubbleSort = (originalArray) => {
+  let swapped = false;
+
+  const a = [...originalArray];
+  const swapsArray = [];
+
+  let len = a.length;
+  for (let i = 1; i < len - 1; i++) {
+    swapped = false;
+
+    for (let j = 0; j < len - i; j++) {
+      if (a[j + 1] < a[j]) {
+        [a[j], a[j + 1]] = [a[j + 1], a[j]];
+        swapsArray.push([j, j+1]);
+        swapped = true;
+      }
+    }
+
+    if (!swapped) {
+      break;
+    }
+  }
+
+  return swapsArray;
+};
+
+export { bubbleSort };

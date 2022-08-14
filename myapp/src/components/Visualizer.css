@@ -1,11 +1,14 @@
 .arrayContainer {
-    margin: 20px auto;
+    /* margin: 2px auto; */
+    padding-top: 50px;
 }
 
 .arrayElement {
-    background-color: yellow;
+    background-color: gainsboro;
     display: inline-block;
-    margin-left: 2px;
-    margin-right: 2px;
-    width: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
+    width: 15px;
+    transition: 0.2s;
 }
+
