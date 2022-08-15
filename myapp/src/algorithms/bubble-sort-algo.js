@@ -5,7 +5,7 @@ const bubbleSort = (originalArray) => {
   const swapsArray = [];
 
   let len = a.length;
-  for (let i = 1; i < len - 1; i++) {
+  for (let i = 1; i < len; i++) {
     swapped = false;
 
     for (let j = 0; j < len - i; j++) {

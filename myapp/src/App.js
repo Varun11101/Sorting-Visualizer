@@ -12,13 +12,16 @@ import { quickSort } from "./algorithms/quick-sort-algo";
 // var ii = 0;
 
 
+
+
+
 const MIN_VALUE = 10;
 const MAX_VALUE = 250;
 const project_title = "< SORTING VISUALIZER / >"
 const ARRAY_SIZE = 30;
 // var left = -1, right = -1;
 // var scount = 0;
-let ANIMATION_SPEED = 100;
+let ANIMATION_SPEED = 200;
 function App() {
   const [sortSpeed, setSortSpeed] = useState(ANIMATION_SPEED);
   const [arr, changeArr] = useState([])
@@ -26,6 +29,8 @@ function App() {
   const [right, setRight] = useState(-1)
   const [mode, setMode] = useState(0)
   const [intro, introSet] = useState(true);
+  const [arrSz, setArrSz] = useState(ARRAY_SIZE);
+  
 
   const [scount, setScount] = useState(0);
   const [comps, setComps] = useState(0);
@@ -80,10 +85,8 @@ function App() {
     setTimeout(() => {
       setLeft(-1);
       setRight(-1);
-      console.log('after sorting: ')
-      console.log(arr);
-      console.log(swapsArray);
       setMode(0);
+      // ANIMATION_SPEED = 100;
     }, len * ANIMATION_SPEED);
   }
 
@@ -123,7 +126,7 @@ function App() {
     setComps(0);
     let newArr = []
     newArr.push(MAX_VALUE)
-    for(let i = 0; i < ARRAY_SIZE-1; i++){
+    for(let i = 0; i < arrSz-1; i++){
       let newEle = generateRandomElement(MIN_VALUE, MAX_VALUE);
       newArr.push(newEle);
     }
@@ -133,27 +136,66 @@ function App() {
   
   // console.log(left);
   console.log(ANIMATION_SPEED)
+  console.log(arrSz);
   return (
     <div className="App">
       <Heading project_title={project_title}></Heading>
 
-        <div className="slidecontainer">
-          <input onChange={(e)=>{
-            // console.log(e);
-            ANIMATION_SPEED = e.target.value;
-          }} type="range" min="10" max="6000"  className="slider" id="myRange"/>
-        </div>
+      {(!intro) && <div className="sliderComponent">
+        <span className="slidecontainer">
+          <span className="slideBarLabel">Speed: </span>
+          <input
+            onChange={(e) => {
+              // console.log(e);
+              ANIMATION_SPEED = 1100 - parseInt(e.target.value);
+            }}
+            type="range"
+            min="1"
+            max="1000"
+            className="slider"
+            id="myRange"
+          />
+        </span>
 
+        <span className="slidecontainer">
+          <span className="slideBarLabel">Size: </span>
+          <input
+            onChange={(e) => {
+              // console.log(e);
+              // ARRAY_SIZE = parseInt(e.target.value);
+              setArrSz(parseInt(e.target.value));
+              generateArray();
+            }}
+            type="range"
+            min="3"
+            max="30"
+            className="slider"
+            id="myRange"
+          />
+        </span>
+      </div>}
 
       <button onClick={generateArray}>Randomize Array</button>
       <button onClick={bubble_sort}>Bubble Sort</button>
       <button onClick={selection_sort}>Selection Sort</button>
       <button onClick={quick_sort}>Quick Sort</button>
-      <button onClick={() => {changeArr(mergeSort(arr))}}>Merge Sort</button>
+      <button
+        onClick={() => {
+          changeArr(mergeSort(arr));
+        }}
+      >
+        Merge Sort
+      </button>
       {intro && <Intro></Intro>}
       {/* <div>Swaps vro: {scount}</div> */}
-      {(!intro) && <Stats comps={comps} scount={scount} sz={ARRAY_SIZE}></Stats>}
-      <Visualizer arr={arr} left={left} right={right} mode={mode} intro={intro}></Visualizer>
+      {!intro && <Stats comps={comps} scount={scount} sz={arrSz}></Stats>}
+      <Visualizer
+        arr={arr}
+        left={left}
+        right={right}
+        mode={mode}
+        intro={intro}
+      ></Visualizer>
     </div>
   );
 }

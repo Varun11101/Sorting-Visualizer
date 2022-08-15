@@ -22,8 +22,8 @@ function partition(items, left, right) {
     }
     if (i <= j) {
       swap(items, i, j); //sawpping two elements
-      swapo.push([i, j, 3]);
-      swapo.push([i, j, 1]);
+      if(i!=j)swapo.push([i, j, 3]);
+      if(i!=j)swapo.push([i, j, 1]);
       i++;
       j--;
     }

@@ -30,7 +30,7 @@ export default function Intro() {
         </div>
       </p>
       <hr></hr>
-      <p>Developed by Varun Hegde.</p>
+      <p>Developed by Varun Hegde</p>
       <div>GitHub Repository: <a href="https://github.com/Varun11101/Sorting-Visualizer" target="_blank">Link</a> </div>
     </div>
   );
