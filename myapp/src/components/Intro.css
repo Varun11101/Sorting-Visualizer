@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+.footerContent {
+    color: hsl(160, 100%, 50%);
+    /* font-family: 'Poppins',sans-serif; */
+    font-family: 'Ubuntu Mono', monospace
+}
+
+.getStarted {
+    font-family: 'Silkscreen', cursive;
+    padding-bottom: 20px;
+}
+
+.about {
+    text-decoration: underline;
+    font-size: 1.5em;
+}
+
+hr {
+    /* border-top: 2px greenyellow; */
+    margin-top: 25px;
+    border: 1.3px solid #00FFAB;
+}
+
+.aboutSection { 
+    padding-left: 200px;
+    text-align: left;
+}
+
+.contentPoint {
+    padding: 7px;
+}

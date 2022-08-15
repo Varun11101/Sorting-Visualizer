@@ -1,6 +1,8 @@
 .arrayContainer {
     /* margin: 2px auto; */
-    padding-top: 50px;
+    padding-top: 0px;
+    /* transition: 2s; */
+    /* position: fixed; */
 }
 
 .arrayElement {
@@ -8,7 +10,14 @@
     display: inline-block;
     margin-left: 1px;
     margin-right: 1px;
-    width: 15px;
+    width: 30px;
     transition: 0.2s;
+    /* border-radius: 10%; */
 }
 
+.dummyDiv {
+    height: 250px;
+    width: 1px;
+    background-color: white;
+    display: inline-block;
+}
