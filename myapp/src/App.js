@@ -22,6 +22,7 @@ const ARRAY_SIZE = 30;
 // var left = -1, right = -1;
 // var scount = 0;
 let ANIMATION_SPEED = 200;
+let arrSz = ARRAY_SIZE;
 function App() {
   const [sortSpeed, setSortSpeed] = useState(ANIMATION_SPEED);
   const [arr, changeArr] = useState([])
@@ -29,8 +30,7 @@ function App() {
   const [right, setRight] = useState(-1)
   const [mode, setMode] = useState(0)
   const [intro, introSet] = useState(true);
-  const [arrSz, setArrSz] = useState(ARRAY_SIZE);
-  
+  // const [arrSz, setArrSz] = useState(ARRAY_SIZE);
 
   const [scount, setScount] = useState(0);
   const [comps, setComps] = useState(0);
@@ -112,8 +112,11 @@ function App() {
     createAnimation(swapsArray);
   }
 
-  function heapSort(){
-
+  function merge_sort(){
+    setScount(0);
+    setComps(0);
+    const swapsArray = mergeSort(arr);
+    createAnimation(swapsArray);
   }
 
   function generateRandomElement(min, max){
@@ -147,7 +150,7 @@ function App() {
           <input
             onChange={(e) => {
               // console.log(e);
-              ANIMATION_SPEED = 1100 - parseInt(e.target.value);
+              ANIMATION_SPEED = 1090 - parseInt(e.target.value);
             }}
             type="range"
             min="1"
@@ -163,7 +166,8 @@ function App() {
             onChange={(e) => {
               // console.log(e);
               // ARRAY_SIZE = parseInt(e.target.value);
-              setArrSz(parseInt(e.target.value));
+              // setArrSz(parseInt(e.target.value));
+              arrSz = parseInt(e.target.value);
               generateArray();
             }}
             type="range"
@@ -180,9 +184,7 @@ function App() {
       <button onClick={selection_sort}>Selection Sort</button>
       <button onClick={quick_sort}>Quick Sort</button>
       <button
-        onClick={() => {
-          changeArr(mergeSort(arr));
-        }}
+        onClick={merge_sort}
       >
         Merge Sort
       </button>

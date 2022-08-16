@@ -15,7 +15,7 @@ export default function Intro() {
         </div>
         <div className="contentPoint">
           - Algorithms such as Bubble Sort, Selection Sort, Quick Sort and Merge
-          Sort are implemented.
+          Sort have been implemented.
         </div>
         <div className="contentPoint">
           - Slider bars are implemented to dynamically control the sorting speed
@@ -31,7 +31,7 @@ export default function Intro() {
       </p>
       <hr></hr>
       <p>Developed by Varun Hegde</p>
-      <div>GitHub Repository: <a href="https://github.com/Varun11101/Sorting-Visualizer" target="_blank">Link</a> </div>
+      <div>GitHub Repository: <a className="gLink" href="https://github.com/Varun11101/Sorting-Visualizer" target="_blank">Link</a> </div>
     </div>
   );
 }

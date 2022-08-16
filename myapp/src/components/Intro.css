@@ -25,10 +25,15 @@ hr {
 }
 
 .aboutSection { 
-    padding-left: 200px;
+    /* padding-left: 200px; */
+    padding-left: 15%;
     text-align: left;
 }
 
 .contentPoint {
     padding: 7px;
+}
+
+.gLink {
+    color: whitesmoke;
 }
