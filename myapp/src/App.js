@@ -9,36 +9,25 @@ import {bubbleSort} from './algorithms/bubble-sort-algo'
 import { selectionSort } from "./algorithms/selection-sort-algo";
 import { quickSort } from "./algorithms/quick-sort-algo";
 
-// var ii = 0;
-
-
-
-
-
 const MIN_VALUE = 10;
 const MAX_VALUE = 250;
 const project_title = "< SORTING VISUALIZER / >"
 const ARRAY_SIZE = 30;
-// var left = -1, right = -1;
-// var scount = 0;
+
 let ANIMATION_SPEED = 200;
 let arrSz = ARRAY_SIZE;
 function App() {
-  const [sortSpeed, setSortSpeed] = useState(ANIMATION_SPEED);
   const [arr, changeArr] = useState([])
   const [left, setLeft] = useState(-1)
   const [right, setRight] = useState(-1)
   const [mode, setMode] = useState(0)
   const [intro, introSet] = useState(true);
-  // const [arrSz, setArrSz] = useState(ARRAY_SIZE);
-
   const [scount, setScount] = useState(0);
   const [comps, setComps] = useState(0);
   
   //0 -> No animation, 1 -> Swapping animation, 2 -> Comparison animation
 
   function c_swap(i, j, dup){
-    // let dup = arr;
     if(i === j) return;
     let len = dup.length;
     if(i < 0 || j < 0 || i >= len || j >= len) return;
@@ -86,11 +75,35 @@ function App() {
       setLeft(-1);
       setRight(-1);
       setMode(0);
+      enableButtons();
+      for(let k = 0; k < arr.length; k++) {
+        setTimeout(() => {
+          document.getElementsByClassName('arrayElement')[k].style.backgroundColor = "#FBFF00";
+          document.getElementsByClassName('arrayElement')[k].style.borderRight = "10px solid #FF9300";
+        }, k*20);
+      }
       // ANIMATION_SPEED = 100;
     }, len * ANIMATION_SPEED);
   }
 
+  function disableButtons(){
+    const disabledArr = document.getElementsByClassName('disableWhileSorting');
+    for(let k = 0; k < disabledArr.length; k++){
+      disabledArr[k].classList.add("pure-button");
+      disabledArr[k].classList.add("pure-button-disabled");
+    }
+  }
+
+  function enableButtons(){
+    const disabledArr = document.getElementsByClassName('disableWhileSorting');
+    for(let k = 0; k < disabledArr.length; k++){
+      disabledArr[k].classList.remove("pure-button");
+      disabledArr[k].classList.remove("pure-button-disabled");
+    }
+  }
+  
   function bubble_sort() {
+    disableButtons();
     setScount(0);
     setComps(0);
     const swapsArray = bubbleSort(arr);
@@ -98,6 +111,7 @@ function App() {
   }
 
   function selection_sort(){
+    disableButtons();
     setScount(0);
     setComps(0);
     const swapsArray = selectionSort(arr);
@@ -106,6 +120,7 @@ function App() {
 
   
   function quick_sort(){
+    disableButtons();
     setScount(0);
     setComps(0);
     const swapsArray = quickSort(arr);
@@ -113,6 +128,7 @@ function App() {
   }
 
   function merge_sort(){
+    if(!intro) disableButtons();
     setScount(0);
     setComps(0);
     const swapsArray = mergeSort(arr);
@@ -127,6 +143,12 @@ function App() {
     introSet(false);
     setScount(0);
     setComps(0);
+    for(let k = 0; k < arr.length; k++) {
+      setTimeout(() => {
+        document.getElementsByClassName('arrayElement')[k].style.backgroundColor = "#00FFAB";
+        document.getElementsByClassName('arrayElement')[k].style.borderRight = "10px solid #0078AA";
+      }, k*20);
+    }
     let newArr = []
     newArr.push(MAX_VALUE)
     for(let i = 0; i < arrSz-1; i++){
@@ -144,48 +166,56 @@ function App() {
     <div className="App">
       <Heading project_title={project_title}></Heading>
 
-      {(!intro) && <div className="sliderComponent">
-        <span className="slidecontainer">
-          <span className="slideBarLabel">Speed: </span>
-          <input
-            onChange={(e) => {
-              // console.log(e);
-              ANIMATION_SPEED = 1090 - parseInt(e.target.value);
-            }}
-            type="range"
-            min="1"
-            max="1000"
-            className="slider"
-            id="myRange"
-          />
-        </span>
+      {!intro && (
+        <div className="sliderComponent">
+          <span className="slidecontainer">
+            <span className="slideBarLabel">Speed: </span>
+            <input
+              onChange={(e) => {
+                // console.log(e);
+                ANIMATION_SPEED = 1090 - parseInt(e.target.value);
+              }}
+              type="range"
+              min="1"
+              max="1000"
+              className="slider disableWhileSorting"
+              id="myRange"
+            />
+          </span>
 
-        <span className="slidecontainer">
-          <span className="slideBarLabel">Size: </span>
-          <input
-            onChange={(e) => {
-              // console.log(e);
-              // ARRAY_SIZE = parseInt(e.target.value);
-              // setArrSz(parseInt(e.target.value));
-              arrSz = parseInt(e.target.value);
-              generateArray();
-            }}
-            type="range"
-            min="3"
-            max="30"
-            className="slider"
-            id="myRange"
-          />
-        </span>
-      </div>}
+          <span className="slidecontainer">
+            <span className="slideBarLabel">Size: </span>
+            <input
+              onChange={(e) => {
+                // console.log(e);
+                // ARRAY_SIZE = parseInt(e.target.value);
+                // setArrSz(parseInt(e.target.value));
+                arrSz = parseInt(e.target.value);
+                generateArray();
+              }}
+              type="range"
+              min="3"
+              max="30"
+              className="slider disableWhileSorting"
+              id="myRange"
+            />
+          </span>
+        </div>
+      )}
 
-      <button onClick={generateArray}>Randomize Array</button>
-      <button onClick={bubble_sort}>Bubble Sort</button>
-      <button onClick={selection_sort}>Selection Sort</button>
-      <button onClick={quick_sort}>Quick Sort</button>
-      <button
-        onClick={merge_sort}
-      >
+      <button className="disableWhileSorting" onClick={generateArray}>
+        Randomize Array
+      </button>
+      <button className="disableWhileSorting" onClick={bubble_sort}>
+        Bubble Sort
+      </button>
+      <button className="disableWhileSorting" onClick={selection_sort}>
+        Selection Sort
+      </button>
+      <button className="disableWhileSorting" onClick={quick_sort}>
+        Quick Sort
+      </button>
+      <button className="disableWhileSorting" onClick={merge_sort}>
         Merge Sort
       </button>
       {intro && <Intro></Intro>}

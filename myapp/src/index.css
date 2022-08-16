@@ -1,5 +1,9 @@
 h1 {
   font-family: 'Poppins', sans-serif;
+  /* text-shadow: 0 0 6px white; */
+   /* -webkit-text-stroke: 1px red; */
+   /* -webkit-text-stroke-right: ; */
+   font-family: arial;
 }
 
 body {

@@ -14,20 +14,26 @@
 }
 
 .about {
-    text-decoration: underline;
-    font-size: 1.5em;
+    text-decoration: underline #0078AA;
+    font-size: 1.8em;
+    font-weight: bolder;
 }
 
+
 hr {
-    /* border-top: 2px greenyellow; */
-    margin-top: 25px;
-    border: 1.3px solid #00FFAB;
+    border: 0;
+    height: 2px;
+    margin: 1.5%;
+    /* color: greenyellow; */
+    background-image: linear-gradient(to right, rgba(96, 235, 161, 0), rgba(59, 255, 163, 0.934), rgba(102, 235, 111, 0));
 }
 
 .aboutSection { 
     /* padding-left: 200px; */
-    padding-left: 15%;
-    text-align: left;
+    font-weight: bold;
+    font-size: medium;
+    /* padding-left: 10%; */
+    text-align: center;
 }
 
 .contentPoint {
@@ -35,5 +41,33 @@ hr {
 }
 
 .gLink {
-    color: whitesmoke;
+    color: white;
+    font-size: large;
+}
+
+.varun {
+    font-family: 'Poppins',sans-serif;
+    font-weight: bold;
+    font-size: larger;
+    text-decoration: underline 1px #0078AA;
+}
+
+.randomText {
+    font-family: 'Poppins',
+    sans-serif;
+    /* font-weight: bolder; */
+    font-size: large;
+    /* text-decoration: underline 1px white; */
+}
+
+.splitterSpan {
+    display: inline-block;
+    height: 20px;
+    background-color: white;
+    width: 2px;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: large;
+    /* -right: 5%; */
+    /* padding-left: 5%; */
 }

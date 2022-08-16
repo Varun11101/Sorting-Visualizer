@@ -14,9 +14,9 @@ export default function Visualizer({arr, left, right, mode, intro}) {
               key={idx}
               style={{
                 height: `${ele}px`,
-                backgroundColor: "#2A0944",
+                backgroundColor: "#FFE268",
                 boxSizing: "border-box",
-                border: "2px solid white",
+                borderRight: "10px solid #FC5404",
               }}
             ></div>
           ) : mode === 3 ? (
@@ -28,20 +28,21 @@ export default function Visualizer({arr, left, right, mode, intro}) {
                 height: `${ele}px`,
                 backgroundColor: "white",
                 boxSizing: "border-box",
-                border: "2px solid white",
+                borderRight: "10px solid white",
               }}
             ></div>
           ) : (
             <div
+              //#FFF56D #FFB72B
               //Mode = 2 -> Comparison
               //Swapped box elements
               className="arrayElement"
               key={idx}
               style={{
                 height: `${ele}px`,
-                backgroundColor: "#FFF80A",
+                backgroundColor: "#FFF56D",
                 boxSizing: "border-box",
-                border: "2px solid white",
+                borderRight: "10px solid #FFB72B",
               }}
             ></div>
           )
@@ -54,7 +55,7 @@ export default function Visualizer({arr, left, right, mode, intro}) {
               height: `${ele}px`,
               backgroundColor: "#00FFAB",
               boxSizing: "border-box",
-              border: "2px solid #0078AA",
+              borderRight: "10px solid #0078AA",
             }}
           ></div>
         );
