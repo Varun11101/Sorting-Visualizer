@@ -1,5 +1,6 @@
 import React from 'react'
 import './Intro.css'
+import Footer from './Footer';
 
 export default function Intro() {
   return (
@@ -31,23 +32,7 @@ export default function Intro() {
           - Technologies Used: ReactJS, CSS, Javascript -
         </div>
       </p>
-      <hr></hr>
-      <p>
-        <span>
-          Developed by <span className="varun">Varun Hegde</span>
-        </span>
-        <div className="splitterSpan">|</div>
-        <span>
-          GitHub Repository -{" "}
-          <a
-            className="gLink"
-            href="https://github.com/Varun11101/Sorting-Visualizer"
-            target="_blank"
-          >
-            Link
-          </a>{" "}
-        </span>
-      </p>
+      <Footer></Footer>
     </div>
   );
 }

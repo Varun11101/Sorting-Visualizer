@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 
+
+.myName {
+    color: hsl(160, 100%, 50%);
+}
 .footerContent {
     color: hsl(160, 100%, 50%);
     /* font-family: 'Poppins',sans-serif; */
@@ -28,7 +32,7 @@ hr {
     background-image: linear-gradient(to right, rgba(96, 235, 161, 0), rgba(59, 255, 163, 0.934), rgba(102, 235, 111, 0));
 }
 
-.aboutSection { 
+.aboutSection {
     /* padding-left: 200px; */
     font-weight: bold;
     font-size: medium;
@@ -46,7 +50,7 @@ hr {
 }
 
 .varun {
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: larger;
     text-decoration: underline 1px #0078AA;
@@ -54,7 +58,7 @@ hr {
 
 .randomText {
     font-family: 'Poppins',
-    sans-serif;
+        sans-serif;
     /* font-weight: bolder; */
     font-size: large;
     /* text-decoration: underline 1px white; */
@@ -70,6 +74,10 @@ hr {
     font-size: large;
     /* -right: 5%; */
     /* padding-left: 5%; */
+}
+
+.githubRepo {
+    color: hsl(160, 100%, 50%);
 }
 
 @media (max-width: 450px) {

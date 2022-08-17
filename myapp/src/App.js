@@ -8,14 +8,16 @@ import {mergeSort} from './algorithms/merge-sort-algo'
 import {bubbleSort} from './algorithms/bubble-sort-algo'
 import { selectionSort } from "./algorithms/selection-sort-algo";
 import { quickSort } from "./algorithms/quick-sort-algo";
+import Footer from './components/Footer';
 
 const MIN_VALUE = 10;
 const MAX_VALUE = 250;
 const project_title = "< SORTING VISUALIZER / >"
-const ARRAY_SIZE = 30;
+const ARRAY_SIZE = 15;
 
 let ANIMATION_SPEED = 200;
 let arrSz = ARRAY_SIZE;
+
 function App() {
   const [arr, changeArr] = useState([])
   const [left, setLeft] = useState(-1)
@@ -78,8 +80,9 @@ function App() {
       enableButtons();
       for(let k = 0; k < arr.length; k++) {
         setTimeout(() => {
-          document.getElementsByClassName('arrayElement')[k].style.backgroundColor = "#FBFF00";
-          document.getElementsByClassName('arrayElement')[k].style.borderRight = "10px solid #FF9300";
+          const domElement = document.getElementsByClassName("arrayElement")[k];
+          if(domElement !== undefined)document.getElementsByClassName('arrayElement')[k].style.backgroundColor = "#FBFF00";
+          if(domElement !== undefined)document.getElementsByClassName('arrayElement')[k].style.borderRight = "10px solid #FF9300";
         }, k*20);
       }
       // ANIMATION_SPEED = 100;
@@ -145,8 +148,9 @@ function App() {
     setComps(0);
     for(let k = 0; k < arr.length; k++) {
       setTimeout(() => {
-        document.getElementsByClassName('arrayElement')[k].style.backgroundColor = "#00FFAB";
-        document.getElementsByClassName('arrayElement')[k].style.borderRight = "10px solid #0078AA";
+        const domElement = document.getElementsByClassName('arrayElement')[k];
+        if(domElement !== undefined)document.getElementsByClassName('arrayElement')[k].style.backgroundColor = "#00FFAB";
+        if(domElement !== undefined)document.getElementsByClassName('arrayElement')[k].style.borderRight = "10px solid #0078AA";
       }, k*20);
     }
     let newArr = []
@@ -159,9 +163,7 @@ function App() {
     changeArr(newArr);
   }
   
-  // console.log(left);
-  console.log(ANIMATION_SPEED)
-  console.log(arrSz);
+
   return (
     <div className="App">
       <Heading project_title={project_title}></Heading>
@@ -187,9 +189,6 @@ function App() {
             <span className="slideBarLabel">Size: </span>
             <input
               onChange={(e) => {
-                // console.log(e);
-                // ARRAY_SIZE = parseInt(e.target.value);
-                // setArrSz(parseInt(e.target.value));
                 arrSz = parseInt(e.target.value);
                 generateArray();
               }}
@@ -203,21 +202,23 @@ function App() {
         </div>
       )}
 
-      <button className="disableWhileSorting" onClick={generateArray}>
-        Randomize Array
-      </button>
-      <button className="disableWhileSorting" onClick={bubble_sort}>
-        Bubble Sort
-      </button>
-      <button className="disableWhileSorting" onClick={selection_sort}>
-        Selection Sort
-      </button>
-      <button className="disableWhileSorting" onClick={quick_sort}>
-        Quick Sort
-      </button>
-      <button className="disableWhileSorting" onClick={merge_sort}>
-        Merge Sort
-      </button>
+      <div className="mainButtons">
+        <button className="disableWhileSorting" onClick={generateArray}>
+          Randomize Array
+        </button>
+        <button className="disableWhileSorting" onClick={bubble_sort}>
+          Bubble Sort
+        </button>
+        <button className="disableWhileSorting" onClick={selection_sort}>
+          Selection Sort
+        </button>
+        <button className="disableWhileSorting" onClick={quick_sort}>
+          Quick Sort
+        </button>
+        <button className="disableWhileSorting" onClick={merge_sort}>
+          Merge Sort
+        </button>
+      </div>
       {intro && <Intro></Intro>}
       {/* <div>Swaps vro: {scount}</div> */}
       {!intro && <Stats comps={comps} scount={scount} sz={arrSz}></Stats>}
@@ -228,7 +229,11 @@ function App() {
         mode={mode}
         intro={intro}
       ></Visualizer>
+      {
+        (!intro) && <Footer></Footer>
+      }
     </div>
+    
   );
 }
 

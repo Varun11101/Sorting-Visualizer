@@ -3,10 +3,12 @@ h1 {
   /* text-shadow: 0 0 6px white; */
    /* -webkit-text-stroke: 1px red; */
    /* -webkit-text-stroke-right: ; */
-   font-family: arial;
+   /* font-family: arial; */
+   font-size: 2em;
 }
 
 body {
+  /* transform: scale(0.89); */
   /* transition: 0.7s; */
   background-color: #252839;
   margin: 0;
@@ -28,6 +30,7 @@ code {
   /* position: relative; */
   color: #00FFAB;
   cursor: pointer;
+  /* display: flex; */
 
 }
 
@@ -39,14 +42,16 @@ code {
 
 .statElement {
   /* padding: 50px; */
-  padding-left: 20px;
-  padding-right: 20px;
+  /* padding-left: 20px; */
+  /* padding-right: 20px; */
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 .statNumber {
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.5em;
 }
 
 
@@ -88,6 +93,7 @@ button:focus:not(:focus-visible):not(.focus-visible) {
 
 button:hover {
   background-color: #1C3879;
+  color:#00FFAB;
 }
 
 button:focus {
@@ -103,7 +109,8 @@ button:disabled {
 }
 
 button:active {
-  background-color: #298e46;
+  /* background-color: #298e46; */
+  /* animation: bounce 0.5s linear; */
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
 
@@ -176,3 +183,83 @@ button:active {
   cursor: pointer;
   /* Cursor on hover */
 }
+
+
+.arrayElement:hover{
+  background-color: white;
+  animation: bounce 0.5s linear;
+  /* transform: scale(1.11,9.11); */
+  /* transition: 2s; */
+}
+
+@keyframes bounce {
+  20% {
+    transform: translateY(-6px);
+  }
+
+  40% {
+    transform: translateY(0px);
+  }
+
+  60%{
+    transform: translateY(-3px);
+  }
+  80%{
+    transform: translateY(0px);
+  }
+}
+
+
+/* Media queries */
+
+@media (max-width: 980px){
+  button {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 780px) {
+  button {
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 4px 6px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+
+  }
+
+  .mainButtons {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .slidecontainer {
+    display: flex;
+    align-items: center;
+    padding: 2%;
+    justify-content: center;
+      /* width: 50%; */
+      /* padding-left: 10px; */
+      /* padding-right: 20px; */
+  }
+}
+
+@media (max-width: 430px) {
+  .stats {
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+
+  .statElement {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .statNumber{
+    font-size: 1em;
+  }
+}
+
+
+

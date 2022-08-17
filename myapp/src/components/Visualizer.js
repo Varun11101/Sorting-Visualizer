@@ -1,6 +1,5 @@
 import React from 'react'
 import './Visualizer.css'
-
 export default function Visualizer({arr, left, right, mode, intro}) {
   return (
     <div className="arrayContainer">
@@ -16,7 +15,8 @@ export default function Visualizer({arr, left, right, mode, intro}) {
                 height: `${ele}px`,
                 backgroundColor: "#FFE268",
                 boxSizing: "border-box",
-                borderRight: "10px solid #FC5404",
+                // borderRight: "10px solid #FC5404",
+                borderRightColor: "#FC5404",
               }}
             ></div>
           ) : mode === 3 ? (
@@ -28,7 +28,8 @@ export default function Visualizer({arr, left, right, mode, intro}) {
                 height: `${ele}px`,
                 backgroundColor: "white",
                 boxSizing: "border-box",
-                borderRight: "10px solid white",
+                // borderRight: "10px solid white",
+                borderRightColor: "white",
               }}
             ></div>
           ) : (
@@ -42,7 +43,8 @@ export default function Visualizer({arr, left, right, mode, intro}) {
                 height: `${ele}px`,
                 backgroundColor: "#FFF56D",
                 boxSizing: "border-box",
-                borderRight: "10px solid #FFB72B",
+                // borderRight: "10px solid #FFB72B",
+                borderRightColor: "#FFB72B",
               }}
             ></div>
           )
@@ -55,7 +57,8 @@ export default function Visualizer({arr, left, right, mode, intro}) {
               height: `${ele}px`,
               backgroundColor: "#00FFAB",
               boxSizing: "border-box",
-              borderRight: "10px solid #0078AA",
+              // borderRight: "10px solid #0078AA",
+              borderRightColor: "#0078AA",
             }}
           ></div>
         );
