@@ -6,8 +6,7 @@ export default function Intro() {
   return (
     <div className="footerContent">
       <p className="getStarted">
-        - Click on <span className="randomText">"Randomize Array"</span> button
-        to get started -
+        - Click on <span className="randomArr">Randomize Array</span> button to get started -
       </p>
       <hr></hr>
       <div className="about">ABOUT</div>

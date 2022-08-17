@@ -9,8 +9,9 @@
 }
 
 .getStarted {
+    padding-top: 10px;
     font-family: 'Silkscreen', cursive;
-    padding-bottom: 20px;
+    /* padding-bottom: 0px; */
 }
 
 .about {
@@ -72,8 +73,27 @@ hr {
     /* padding-left: 5%; */
 }
 
+.randomArr {
+    /* color:#0078AA; */
+    text-decoration: underline white;
+}
+
 @media (max-width: 450px) {
     .githubRepo {
         display: block;
+    }
+
+    .getStarted {
+        font-size: 10px;
+    }
+
+    .randomArr {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 555px) {
+    .getStarted {
+        font-size: 13px;
     }
 }

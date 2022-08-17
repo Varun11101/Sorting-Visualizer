@@ -5,6 +5,7 @@ h1 {
    /* -webkit-text-stroke-right: ; */
    /* font-family: arial; */
    font-size: 2em;
+   /* padding-top: 30px; */
 }
 
 body {
@@ -252,14 +253,31 @@ button:active {
   }
 
   .statElement {
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
   }
 
   .statNumber{
     font-size: 1em;
   }
 }
+
+@media (max-width: 430px) {
+  h1 {
+    font-size: 1.5em;
+    padding-bottom: 7px;
+    /* padding-top: 20px; */
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    /* font-size: 1.5em; */
+    /* padding-bottom: 7px; */
+    padding-top: 30px;
+  }
+}
+
 
 
 

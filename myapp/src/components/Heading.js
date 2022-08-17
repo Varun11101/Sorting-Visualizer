@@ -6,6 +6,7 @@ export default function Heading({project_title}) {
   }
   return (
     <div className="heading">
+        {/* <hr></hr> */}
         <h1 onClick={resetFunc}>
             {project_title}
         </h1>
