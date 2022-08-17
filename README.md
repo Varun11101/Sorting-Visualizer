@@ -1,7 +1,7 @@
 # Sorting-Algo-Visualizer
 Sorting algorithm visualizer made using React JS.
 
-Implmented the following algorithms:
+Implemented the following algorithms:
  - Bubble Sort
  - Selection Sort
  - Quick Sort
